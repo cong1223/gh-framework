@@ -26,18 +26,18 @@
 |-- node_mudules
 |-- public
 |-- src
-		|-- assets // 静态资源文件夹
-		|-- config // 配置文件文件夹
-		|-- const // 常量配置文件夹
-		|-- framework // gh-framework 文件夹
-				|-- directives // 全局指令文件夹
-				|-- mixin // 全局mixin混入文件夹
-				|-- plugins // framework 核心工具集的配置入口
-				|-- utils // 全局工具集文件夹
-				|-- ui // 全局通用ui组件文件夹
-				|-- config.js // 文件名映射配置文件(重要)
-				|-- index.js // 导出为vue能安装的framework插件（封装为install函数）
-		|-- services // 数据请求层文件夹
+    |-- assets // 静态资源文件夹
+    |-- config // 配置文件文件夹
+    |-- const // 常量配置文件夹
+    |-- framework // gh-framework 文件夹
+        |-- directives // 全局指令文件夹
+        |-- mixin // 全局mixin混入文件夹
+        |-- plugins // framework 核心工具集的配置入口
+        |-- utils // 全局工具集文件夹
+        |-- ui // 全局通用ui组件文件夹
+        |-- config.js // 文件名映射配置文件(重要)
+        |-- index.js // 导出为vue能安装的framework插件（封装为install函数）
+    |-- services // 数据请求层文件夹
 |-- .browserslistrc
 |-- .eslintrc.js
 |--	.gitignore
@@ -59,17 +59,17 @@
 
 ```
 |-- directives
-		|-- debounce.js // 防止按钮在短时间内被多次点击，使用防抖函数限制规定时间内只能点击一次
-		|-- loadmore.js // element-ui下拉框下拉更多
-		|-- draggable.js // 实现一个拖拽指令，可在页面可视区域任意拖拽元素
-		|-- copy.js // 复制粘贴指令
-		|-- emoji.js // 不能输入表情和特殊字符，只能输入数字或字母等
-		|-- lazyload.js // 实现一个图片懒加载指令，只加载浏览器可见区域的图片
-		|-- longpress.js // 实现长按，用户需要按下并按住按钮几秒钟，触发相应的事件
-		|-- permission.js // 权限指令，对需要权限判断的 Dom 进行显示隐藏
-		|-- watermark.js // 给整个页面添加背景水印
-		|-- // 更多其他指令...
-		|-- index.js // 统一出口
+    |-- debounce.js // 防止按钮在短时间内被多次点击，使用防抖函数限制规定时间内只能点击一次
+    |-- loadmore.js // element-ui下拉框下拉更多
+    |-- draggable.js // 实现一个拖拽指令，可在页面可视区域任意拖拽元素
+    |-- copy.js // 复制粘贴指令
+    |-- emoji.js // 不能输入表情和特殊字符，只能输入数字或字母等
+    |-- lazyload.js // 实现一个图片懒加载指令，只加载浏览器可见区域的图片
+    |-- longpress.js // 实现长按，用户需要按下并按住按钮几秒钟，触发相应的事件
+    |-- permission.js // 权限指令，对需要权限判断的 Dom 进行显示隐藏
+    |-- watermark.js // 给整个页面添加背景水印
+    |-- // 更多其他指令...
+    |-- index.js // 统一出口
 ```
 
 > 以上更多通用指令请在示例项目中查看获取
@@ -145,7 +145,7 @@ export default {
 
 ```
 |-- mixin
-	  |-- index.js
+    |-- index.js
 ```
 
 index.js
@@ -287,13 +287,13 @@ export default {
 
 ```
 |-- plugins
-		|-- axios.js // 封装后的axios插件
-		|-- config.js // 配置文件插件
-		|-- const.js // 常量定义插件
-		|-- request.js // axios的上层请求封装插件
-		|-- service.js // 接口请求，数据处理层插件
-		|-- storage.js // localStorage插件
-		|-- utils.js // 自定义封装工具集插件
+    |-- axios.js // 封装后的axios插件
+    |-- config.js // 配置文件插件
+    |-- const.js // 常量定义插件
+    |-- request.js // axios的上层请求封装插件
+    |-- service.js // 接口请求，数据处理层插件
+    |-- storage.js // localStorage插件
+    |-- utils.js // 自定义封装工具集插件
 ```
 
 axios.js
@@ -598,9 +598,9 @@ export default utils;
 
 ```
 |-- utils
-		|-- array.js
-		|-- index.js
-		|-- //更多自定义封装的工具...
+    |-- array.js
+    |-- index.js
+    |-- //更多自定义封装的工具...
 ```
 
 array.js
@@ -640,10 +640,10 @@ export {
 
 ```
 |-- ui
-		|-- components // 放置组件文件夹
-				|-- scroll-view // 组件名称
-						|-- index.vue // 当前组件入口文件
-     		|-- index.js // 统一组件出口
+    |-- components // 放置组件文件夹
+        |-- scroll-view // 组件名称
+            |-- index.vue // 当前组件入口文件
+        |-- index.js // 统一组件出口
 ```
 
 scroll-view/index.vue
@@ -813,11 +813,11 @@ export default {
 
 ```
 |-- services
-		|-- abstract
-				|-- BaseService.js // service文件中不能通过this获取framework下的插件，这里统一在基类里面引用，使其在service文件中也能通过this获取插件。
-		|-- UserService.js
-		|-- EnterpriseService.js
-		|-- // 更多业务Service
+    |-- abstract
+        |-- BaseService.js // service文件中不能通过this获取framework下的插件，这里统一在基类里面引用，使其在service文件中也能通过this获取插件。
+    |-- UserService.js
+    |-- EnterpriseService.js
+    |-- // 更多业务Service
 ```
 
 BaseService.js
@@ -980,10 +980,10 @@ export default class EnterpriseService extends BaseService {
 
 ```
 |-- const
-		|-- abstract
-				|-- BaseConstant.js	// 封装常量类工具
-		|-- TemplateConstants.js
-		|-- // more constants files
+    |-- abstract
+        |-- BaseConstant.js	// 封装常量类工具
+    |-- TemplateConstants.js
+    |-- // more constants files
 ```
 
 BaseConstant.js
@@ -1240,7 +1240,7 @@ export default class TemplateConstants {
 
 ```
 |-- config
-		|-- uri.js
+    |-- uri.js
 ```
 
 uri.js
