@@ -1,0 +1,29 @@
+// 自定义封装的二次弹窗样式
+.zk-confirm-box {
+  width: 500px;
+  height: 192px;
+  box-sizing: border-box;
+  position: relative;
+  .el-message-box__btns {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+  }
+  .el-message-box__header {
+    font-size: 16px;
+    font-weight: 600;
+    color: #262626;
+    padding: 32px 32px 24px;
+    .el-message-box__headerbtn {
+      top: 32px;
+      right: 32px;
+      i {
+        color: rgba(0,0,0,.45);
+        font-size: 24px;
+      }
+    }
+  }
+  .el-message-box__content {
+    padding: 0 32px;
+  }
+}

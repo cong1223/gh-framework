@@ -1,0 +1,298 @@
+@import './reset.scss';
+@import './component.scss';
+
+.f-cf:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.f-cf {
+  zoom: 1; /* for IE6 IE7 */
+}
+
+.f-clear {
+  clear: both;
+}
+
+/* 隐藏显示, 通常用来与 JS 配合 */
+.f-dn {
+  display: none;
+}
+
+.f-vh {
+  visibility: hidden;
+}
+
+.f-vv {
+  visibility: visible;
+}
+
+.f-db {
+  display: block;
+}
+
+.f-dib {
+  display: inline-block !important;
+}
+
+.f-flex {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-between {
+  @extend .flex;
+  justify-content: space-between;
+}
+
+.center {
+  @extend .flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-align {
+  display: flex;
+  align-items: center;
+}
+
+/* 设置内联, 减少浮动带来的bug */
+.f-fl, .f-fr {
+  display: inline;
+}
+
+.f-fl {
+  float: left;
+}
+
+.f-fr {
+  float: right;
+}
+
+/* 文本对齐 */
+.f-tac {
+  text-align: center;
+}
+
+.f-tal {
+  text-align: left;
+}
+
+.f-tar {
+  text-align: right;
+}
+
+/* 字体 */
+.f-fwb {
+  font-weight: bold;
+}
+
+.f-fs12 {
+  font-size: 12px;
+}
+
+.f-fs14 {
+  font-size: 14px;
+}
+
+.f-fs16 {
+  font-size: 16px;
+}
+
+.f-fs18 {
+  font-size: 18px;
+}
+
+.f-fs20 {
+  font-size: 20px;
+}
+
+.f-fs22 {
+  font-size: 22px;
+}
+
+.f-fs24 {
+  font-size: 24px;
+}
+
+.f-fs26 {
+  font-size: 26px;
+}
+
+.f-fs28 {
+  font-size: 28px;
+}
+
+.f-fs32 {
+  font-size: 32px;
+}
+
+.f-fs40 {
+  font-size: 40px;
+}
+
+.f-fs44 {
+  font-size: 44px;
+}
+
+.f-fwn {
+  font-weight: normal;
+}
+
+.f-pos-r {
+  position: relative;
+}
+
+.f-pos-a {
+  position: absolute;
+}
+
+.f-opacity {
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.mt3 {
+  margin-top: 3px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mt8 {
+  margin-top: 8px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt25 {
+  margin-top: 25px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.mt100 {
+  margin-top: 100px;
+}
+
+.mr8 {
+  margin-right: 8px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb80 {
+  margin-bottom: 80px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.g-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+a, a:focus, a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+input[name='username'], input[name='userName'], input[name='address'],
+input[name='trueName'] {
+  ime-mode: auto;
+}
+
+.m-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.m-content {
+  padding: 0 24px 24px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.iconfont {
+  font-size: 14px;
+}
+
+.text-el-button{
+  padding: 0;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.single-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
