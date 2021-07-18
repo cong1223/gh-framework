@@ -4,6 +4,8 @@
 
 `gh-framework`旨在解决`vue2`环境下(思想可用于任何框架项目，不局限于vue2)的前端工程化问题，它将封装`vue`项目中常用的工具库和配置文件并将其可移植化，例如`axios`、`constants(常量)`、`directives(指令)`、`services(数据请求层)`、`config(配置文件)`、`mixin(全局混入)`、`utils(工具集)`、`context(上下文)`。本方案本人已在5+项目上应用，包括一个大型前端项目。
 
+> github地址(示例代码): https://github.com/cong1223/gh-framework
+
 ### 特性
 
 1. 高度封装：高度封装项目常用工具和配置，不写重复代码。
@@ -1312,134 +1314,134 @@ Vue.use(Framework);
 
 - 全局混入中部分方法的应用
 
-  ```javascript
-  // 跳转首页
-  this.goto('/');
-  // 返回上一页
-  this.goBack();
-  // showToast
-  this.$toast("success", "调用成功!");
-  // $confirmBox
-  this.$confirmBox("取消下载", `确定要取消该下载任务吗?`, (done, instance) => {
-    setTimeout(() => {
-      done();
-      instance.confirmButtonLoading = false;
-    }, 1500);
-  });
-  ```
+```javascript
+// 跳转首页
+this.goto('/');
+// 返回上一页
+this.goBack();
+// showToast
+this.$toast("success", "调用成功!");
+// $confirmBox
+this.$confirmBox("取消下载", `确定要取消该下载任务吗?`, (done, instance) => {
+  setTimeout(() => {
+    done();
+    instance.confirmButtonLoading = false;
+  }, 1500);
+});
+```
 
 - 使用全局公共工具集
 
-  ```javascript
-  uniqueArr() {
-    const arr = [{ name: "王", age: 2 }, { name: "叶", age: 4 }, { name: "张", age: 2 }];
-    console.log(this.utils.array.unique(arr, "age")) // [{ name: "王", age: 2 }, { name: "叶", age: 4 }]
-  },
-  deleteEmptyProperty() {
-    const params = {
-      name: '小聪忙',
-      age: 24,
-      address: '',
-      job: undefined,
-      phone: null
-    };
-    console.log(this.utils.obj.deleteEmptyProperty(params))  //{name: '小聪忙',age: 24}
-  }
-  ```
+```javascript
+uniqueArr() {
+  const arr = [{ name: "王", age: 2 }, { name: "叶", age: 4 }, { name: "张", age: 2 }];
+  console.log(this.utils.array.unique(arr, "age")) // [{ name: "王", age: 2 }, { name: "叶", age: 4 }]
+},
+deleteEmptyProperty() {
+  const params = {
+    name: '小聪忙',
+    age: 24,
+    address: '',
+    job: undefined,
+    phone: null
+  };
+  console.log(this.utils.obj.deleteEmptyProperty(params))  //{name: '小聪忙',age: 24}
+}
+```
 
 
 
 - 使用全局ui组件
 
-  ```vue
-  <template>
-    <scroll-view style="height: 300px; background-color: #d0e5f2" :pages="pages"@load="load">
-      <div v-for="(num, index) in list" :key="index">
-        {{ num }}
-          </div>
-    </scroll-view>
-  </template>
-  export default {
-  	data() {
-      return {
-        pages: 3, // 总页数
-        list: []
-      };
-    },
-    methods: {
-      load(page = 1, next) {
-        setTimeout(() => {
-          if (page === 1) {
-            this.list = Array.from({ length: 100 }, (v, k) => k);
-          } else {
-            this.list.push(...Array.from({ length: 100 }, (v, k) => k));
-          }
-          next && next();
-        }, 1000);
-      }
+```vue
+<template>
+  <scroll-view style="height: 300px; background-color: #d0e5f2" :pages="pages"@load="load">
+    <div v-for="(num, index) in list" :key="index">
+      {{ num }}
+        </div>
+  </scroll-view>
+</template>
+export default {
+  data() {
+    return {
+      pages: 3, // 总页数
+      list: []
+    };
+  },
+  methods: {
+    load(page = 1, next) {
+      setTimeout(() => {
+        if (page === 1) {
+          this.list = Array.from({ length: 100 }, (v, k) => k);
+        } else {
+          this.list.push(...Array.from({ length: 100 }, (v, k) => k));
+        }
+        next && next();
+      }, 1000);
     }
   }
-  ```
+}
+```
 
 
 
 - 使用全局配置文件
 
-  ```javascript
-  // 获取uri配置文件中的BASE_URL
-  const baseUrl = this.config.uri.BASE_URL;
-  ```
+```javascript
+// 获取uri配置文件中的BASE_URL
+const baseUrl = this.config.uri.BASE_URL;
+```
 
 
 
 - 使用全局常量
 
-  ```javascript
-  // 获取普通人员角色
-  this.const.template.PerRole.NORMAL.value() // "2"
-  this.const.template.PerRole.NORMAL.name() // "NORMAL"
-  // 获取文件夹权限集合，适用于element-ui的el-select组件
-  const perOptions = this.const.template.PerRole.getSelectOptionsByCnameAndValue(); // [{label: "只读", value: ""0},{...}]
-  // 根据value获取对应的值的描述信息(例子: 下载权限对应的value是'2')
-  this.const.template.PerFolder.getCnameByValue("2") // "下载"
-  ```
+```javascript
+// 获取普通人员角色
+this.const.template.PerRole.NORMAL.value() // "2"
+this.const.template.PerRole.NORMAL.name() // "NORMAL"
+// 获取文件夹权限集合，适用于element-ui的el-select组件
+const perOptions = this.const.template.PerRole.getSelectOptionsByCnameAndValue(); // [{label: "只读", value: ""0},{...}]
+// 根据value获取对应的值的描述信息(例子: 下载权限对应的value是'2')
+this.const.template.PerFolder.getCnameByValue("2") // "下载"
+```
 
 
 
 - 使用services进行后台数据请求
 
-  ```javascript
-  this.service.enterprise.getEnterpriseUserList(
-    'xxxxx',
-    this.keywords,
-    this.page,
-    this.pageSize
-  ).then(res => {
-    console.log(res)
-    // TODO: 处理返回数据
-  }).catch(e =>  {
-    console.log(e)
-    // TODO: 处理错误返回数据
-  })
-  ```
+```javascript
+this.service.enterprise.getEnterpriseUserList(
+  'xxxxx',
+  this.keywords,
+  this.page,
+  this.pageSize
+).then(res => {
+  console.log(res)
+  // TODO: 处理返回数据
+}).catch(e =>  {
+  console.log(e)
+  // TODO: 处理错误返回数据
+})
+```
 
 - 使用本地缓存
 
-  ```javascript
-  // 缓存用户信息
-  // 这里的key在实际项目中也要配置化,统一管理
-  const user = { name: "小聪忙", wechat: "YXC19970131" };
-  this.storage.setItem("USER_INFO", user);
-  this.$toast("success", "保存成功");
-  
-  // 获取用户名
-  const user = this.storage.getItem("USER_INFO");
-  if (user && user.name) {
-    this.$toast("success", user.name);
-  } else {
-    this.$toast("error", "暂无用户缓存信息,请先缓存");
-  }
-  ```
+```javascript
+// 缓存用户信息
+// 这里的key在实际项目中也要配置化,统一管理
+const user = { name: "小聪忙", wechat: "YXC19970131" };
+this.storage.setItem("USER_INFO", user);
+this.$toast("success", "保存成功");
+
+// 获取用户名
+const user = this.storage.getItem("USER_INFO");
+if (user && user.name) {
+  this.$toast("success", user.name);
+} else {
+  this.$toast("error", "暂无用户缓存信息,请先缓存");
+}
+```
 
 
 
@@ -1449,8 +1451,3 @@ Vue.use(Framework);
 
 `gh-framework`就是以封装、快速移植为目的而诞生的一种工程化思维，可以达到帮助开发者和小型团队快速搭建项目，复制项目，移植项目核心代码的目的。其与webpack、gitLab等工具结合，可以实现一个编码、打包、部署结合一体的完整前端工程。
 
-
-
-
-
-####  
